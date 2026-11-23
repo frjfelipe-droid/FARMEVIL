@@ -55,7 +55,8 @@ button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 #bCr{width:62px;height:62px;background:radial-gradient(circle at 40% 30%,#ead2a8,#c9a066 60%,#8a6a3a);font-size:11px;display:none}
 #bCr.on{background:#ffe08a;box-shadow:0 0 0 4px #fff inset}
 #bInv.on{background:#38e8ff;box-shadow:0 0 18px #38e8ff}
-#invbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 236px);width:min(60vw,260px);height:12px;border:2px solid #d9ffd2;border-radius:6px;background:rgba(0,0,0,.6);z-index:6;display:none;overflow:hidden;box-shadow:0 0 10px rgba(124,255,107,.3)}
+#invwrap{display:none;align-items:center;gap:6px;background:rgba(4,22,16,.85);border:2px solid #7cff6b;border-radius:8px;padding:3px 8px;font-size:12px;color:#d9ffd2;width:fit-content;box-shadow:0 0 10px rgba(124,255,107,.3)}
+#invbar{width:110px;height:8px;border-radius:4px;background:rgba(0,0,0,.6);overflow:hidden}
 #invfill{height:100%;width:100%;background:linear-gradient(90deg,#38e8ff,#7cff6b)}
 #dlg{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:min(96vw,640px);z-index:55;display:none;background:var(--paper);color:var(--ink);border:4px solid var(--wood);border-radius:12px;padding:12px 14px 14px;box-shadow:0 0 0 3px #c9a066,0 8px 0 rgba(0,0,0,.5);min-height:120px;animation:din .25s ease-out}
 @keyframes din{from{transform:translate(-50%,20px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
@@ -138,14 +139,13 @@ body.title #top,body.title #btns,body.title #hotbar,body.title #invbar,body.titl
   <div class="pill" id="hCows">10</div>
   <div class="pill" id="hGoods"></div>
   <div id="hbtn"><button id="bMap" aria-label="Mapa"><svg width="22" height="18" viewBox="0 0 22 18"><path d="M1 3l6-2 8 2 6-2v14l-6 2-8-2-6 2z" fill="#e9d7a8" stroke="#2a1a0e" stroke-width="1.5"/><path d="M7 1v14M15 3v14" stroke="#a07840" stroke-width="1.2"/><circle cx="11" cy="8" r="2" fill="#b8322a"/></svg></button><button id="bMenu" aria-label="Menu">☰</button></div>
-</div><div id="obj"><span id="objT"></span></div></div>
+</div><div id="obj"><span id="objT"></span></div><div id="invwrap">ENERGIA<div id="invbar"><div id="invfill"></div></div></div></div>
 <div id="toast"></div>
 <div id="prompt"></div>
 <div id="hotbar"></div>
 <div id="stickZone"></div>
 <div id="stickHint">mover</div>
 <div id="stick"><div id="knob"></div></div>
-<div id="invbar"><div id="invfill"></div></div>
 <div id="btns">
   <button class="rb" id="bInv">INVISÍVEL</button>
   <button class="rb" id="bA">AÇÃO</button>
@@ -495,7 +495,7 @@ function personBody(g,x,y,P,dir,moving,t,o,ov){
     else if(dir==='l'){if(!blink)q(3,5,1,2,eye);if(P.glasses)q(3,5,3,2,'#0a0a0a')}else if(dir==='r'){if(!blink)q(8,5,1,2,eye);if(P.glasses)q(6,5,3,2,'#0a0a0a')}}
   if(P.hat){q(3,0,6,3,P.hat);q(1,3,10,1,P.hat);if(!ov){q(3,0,3,1,sh(P.hat,1.2));q(3,2,6,1,P.band);q(8,0,1,3,sh(P.hat));q(1,3,2,1,sh(P.hat,1.15));q(9,3,2,1,sh(P.hat,.85))}}
   if(P.cap){q(3,1,6,2,P.cap);if(dir==='l')q(1,3,3,1,P.cap);else if(dir==='r')q(8,3,3,1,P.cap);else if(dir==='d')q(3,3,6,1,P.cap)}
-  if(!ov&&o.glow&&dir!=='u'){g.fillStyle='rgba(124,255,107,.35)';g.fillRect(L+2,T2+4,8,4);q(1,11,1,1,'#7cff6b');q(10,10,1,1,'#7cff6b')}
+  if(!ov&&o.glow&&dir!=='u'){const gl=.5+.5*Math.sin(t*4);g.fillStyle=`rgba(124,255,107,${.25+.25*gl})`;if(dir==='d'){g.fillRect(L+3,T2+4,3,3);g.fillRect(L+6,T2+4,3,3)}else g.fillRect(L+(dir==='l'?2:7),T2+4,3,3);q(dir==='l'?5:10,12,1,1,'#7cff6b')}
   if(!ov&&o.device){const on=(t*3|0)%2;q(dir==='l'?5:10,13,1,1,on?'#38e8ff':'#1a6a7a')}
 }
 function handPt(x,y,dir,ar,cr){const c=cr?3:0;if(ar==='up')return[x,y-21+c];if(ar==='front'){if(dir==='r')return[x+5,y-9+c];if(dir==='l')return[x-5,y-9+c];if(dir==='d')return[x,y-7+c];return[x,y-9+c]}if(dir==='r'||dir==='l')return[x,y-6+c];return[x+5,y-6+c]}
@@ -851,7 +851,7 @@ function tasks(){const inBarn=S.cows.filter(c=>c.state==='barn').length;const bc
   {id:'store',t:'Voltar às 18h e guardar as vacas no celeiro',ok:S.released&&inBarn===S.cows.length&&S.min>=17*60},
   {id:'sleep',t:'Tomar banho e dormir (dentro de casa)',ok:false}]}
 function objective(){if(!S)return'';if(S.story)return S.story;if(M&&!['farm','city','vizinho','casa','celeiro'].includes(M.name))return'';const t=tasks().find(t=>!t.ok);return t?t.t:''}
-function updateButtons(){const st=M&&M.stealth;$('bInv').style.display=S&&S.powers?'grid':'none';$('invbar').style.display=S&&S.powers?'block':'none';$('bCr').style.display=(st||(S&&S.powers))?'grid':'none';$('hotbar').style.display=M&&M.name==='farm'?'flex':'none'}
+function updateButtons(){const st=M&&M.stealth;$('bInv').style.display=S&&S.powers?'grid':'none';$('bCr').style.display=(st||(S&&S.powers))?'grid':'none';$('hotbar').style.display=M&&M.name==='farm'?'flex':'none'}
 
 /* ================= ACTIONS ================= */
 let curTarget=null;
@@ -1276,7 +1276,7 @@ function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;GT+=dt;
     updDialog(dt);if(CUT){CUT.t+=dt;if(CUT.fx)CUT.fx(CUT.t);if(CUT.t>=CUT.dur)endCut()}
     if(P.act)updAct(dt);if(SMOVE)updScriptMove(dt);else if(!busy()){updPlayer(dt);updTime(dt)}else P.moving=false;
     if(P.demo>0){P.demo-=dt;const a=GT*6;P.invis=(GT*8|0)%3===0;P.dx=Math.cos(a)*18;P.dy=Math.sin(a)*10;P.jump=Math.abs(Math.sin(GT*7))*10;if(Math.random()<.5)particles.push({x:P.x+P.dx,y:P.y+P.dy,vx:0,vy:0,g:0,life:.3,max:.3,col:'ghost',s:1})}else{P.dx=P.dy=0;P.jump=0}
-    if(S.powers){if(P.invis&&P.demo<=0){S.ener-=dt*20;if(S.ener<=0){S.ener=0;P.invis=false;sfx('vis');$('bInv').classList.remove('on')}}else if(!P.invis)S.ener=Math.min(100,S.ener+dt*9);$('invfill').style.width=S.ener+'%'}
+    if(S.powers){if(P.invis&&P.demo<=0){S.ener-=dt*20;if(S.ener<=0){S.ener=0;P.invis=false;sfx('vis');$('bInv').classList.remove('on')}}else if(!P.invis)S.ener=Math.min(100,S.ener+dt*9);$('invfill').style.width=S.ener+'%';$('invwrap').style.display=(P.invis||S.ener<99.5||S.flags.waitInvis)?'flex':'none'}
     updCows(dt);updNPCs(dt);if(M.stealth)updGuards(dt);updParticles(dt);updAmbient(dt);
     if(CINE.title){CINE.title.life-=dt;if(CINE.title.life<=0)CINE.title=null}
     CINE.bars+=((CINE.on?1:0)-CINE.bars)*Math.min(1,dt*5);
