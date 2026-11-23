@@ -31,6 +31,15 @@ Para jogar online, ative o **GitHub Pages** em *Settings → Pages → Deploy fr
 - **Cutscenes:** sequestro com raio de luz, a câmera entrando no olho até o DNA sendo reescrito, a conexão neural e a revelação na cabana.
 - **Música sintetizada limpa**, sem ruído, com trilhas diferentes para dia, noite, cidade, mistério e furtividade.
 
+## Atividades extras
+
+- **Vacas de verdade:** elas vão sozinhas comer no cocho e beber no bebedouro. Se esvaziar, aparece um "?" sobre elas.
+- **Galinheiro:** dê ração no comedouro e recolha os ovos no dia seguinte.
+- **Lago:** pesque no píer ou na margem (lambari, tilápia e o raro tucunaré).
+- **Lotes para construir:** piscina (dá para nadar), chalé (rede e cama) ou estufa (tomates todo dia).
+- **Cidade:** quadro de pedidos (paga o dobro) e barraca de argolas.
+- **Outras fazendas:** Seu Zé (compra leite e queijo), Sítio da Dona Lurdes (pomar de laranjas) e Haras do Seu Jorge (escovar cavalos e passeio a cavalo).
+
 ## Experiência e poderes
 
 O dispositivo ganha **XP** quando você usa os poderes, avança na história, derrota alienígenas e completa as tarefas da fazenda. Cada nível libera um poder:
