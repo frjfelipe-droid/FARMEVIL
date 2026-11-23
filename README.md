@@ -15,6 +15,7 @@ Para jogar online, ative o **GitHub Pages** em *Settings → Pages → Deploy fr
 | Andar | Direcional à esquerda | WASD / setas |
 | Interagir | Botão AÇÃO | E ou Espaço |
 | Invisível (depois da floresta) | Botão INVISÍVEL | Q |
+| Telecinese: empurrar / impacto | Toque / segure e solte PODER | F (toque / segure) |
 | Agachar | Botão AGACHAR | C |
 | Ferramentas | Barra inferior | 1–6 |
 | Mapa | Botão do mapa no topo | M |
@@ -29,5 +30,18 @@ Para jogar online, ative o **GitHub Pages** em *Settings → Pages → Deploy fr
 - **História:** entre o dia 3 e o dia 5, três vacas somem de madrugada. Investigue, siga a fumaça até a floresta, receba o dispositivo alienígena e atravesse a trilha dos guardas usando invisibilidade.
 - **Cutscenes:** sequestro com raio de luz, a câmera entrando no olho até o DNA sendo reescrito, a conexão neural e a revelação na cabana.
 - **Música sintetizada limpa**, sem ruído, com trilhas diferentes para dia, noite, cidade, mistério e furtividade.
+
+## Experiência e poderes
+
+O dispositivo ganha **XP** quando você usa os poderes, avança na história, derrota alienígenas e completa as tarefas da fazenda. Cada nível libera um poder:
+
+1. **Invisibilidade:** some da vista (mas ainda ouvem seus passos).
+2. **Telecinese (120 XP):** EMPURRAR atordoa pessoas e move caixas e barris. O IMPACTO estoura hidrantes, quebra caixas e vasos, derruba lixeiras e pode matar.
+3. **Super velocidade (300 XP):** você corre bem mais rápido.
+
+## Dois caminhos, dois finais
+
+- **Herói:** derrote só os alienígenas (guardas e homens de terno). Final feliz.
+- **Procurado:** se matar um inocente (morador ou policial), a polícia te caça todos os dias, te prende e cobra multa. Final sombrio.
 
 O progresso é salvo no navegador toda vez que você dorme.
