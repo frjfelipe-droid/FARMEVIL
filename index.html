@@ -17,7 +17,7 @@ LAYOUT: tela cheia, HUD no topo, controles de toque embaixo, faixas de cinema na
 :root{color-scheme:dark;--wood:#5b3a22;--wood2:#7a5030;--paper:#f4e7c8;--ink:#2a1a0e;--alien:#7cff6b;--red:#b8322a;--gold:#f2c94c}
 *{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:#000;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;font-family:'Pixelify Sans',ui-monospace,monospace;color:var(--paper)}
-canvas#cv{position:fixed;inset:0;display:block;image-rendering:pixelated}
+canvas#cv{position:fixed;top:0;right:0;bottom:0;left:0;display:block;image-rendering:pixelated}
 button{font:inherit;cursor:pointer}
 button:focus-visible{outline:3px solid #fff;outline-offset:2px}
 #top{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:8px;right:8px;z-index:5;pointer-events:none;display:flex;flex-direction:column;gap:6px;transition:opacity .4s,transform .4s}
@@ -65,7 +65,7 @@ body.pw #hotbar{bottom:calc(env(safe-area-inset-bottom,0px) + 252px)}
 #dlg{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:min(96vw,640px);z-index:55;display:none;background:var(--paper);color:var(--ink);border:4px solid var(--wood);border-radius:12px;padding:12px 14px 14px;box-shadow:0 0 0 3px #c9a066,0 8px 0 rgba(0,0,0,.5);min-height:120px;animation:din .25s ease-out}
 @keyframes din{from{transform:translate(-50%,20px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
 #dlg.sys{background:rgba(4,22,16,.94);color:#bfffd0;border-color:#1f6b4a;box-shadow:0 0 0 3px var(--alien),0 0 28px rgba(124,255,107,.4);text-shadow:0 0 6px rgba(124,255,107,.5)}
-#dlg.sys::before{content:'';position:absolute;inset:0;border-radius:8px;background:repeating-linear-gradient(0deg,rgba(124,255,107,.06) 0 2px,transparent 2px 4px);pointer-events:none}
+#dlg.sys::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;border-radius:8px;background:repeating-linear-gradient(0deg,rgba(124,255,107,.06) 0 2px,transparent 2px 4px);pointer-events:none}
 #dPort{float:left;width:58px;height:58px;margin:0 10px 4px 0;border:3px solid var(--wood);border-radius:8px;background:#c9a066;image-rendering:pixelated}
 #dlg.sys #dPort{border-color:var(--alien);background:#0a2a1e}
 #dName{display:inline-block;background:var(--wood);color:var(--paper);padding:2px 10px;border-radius:6px;font-size:14px;margin-bottom:6px;font-weight:600}
@@ -78,7 +78,7 @@ body.pw #hotbar{bottom:calc(env(safe-area-inset-bottom,0px) + 252px)}
 #dChoices button:active{transform:translateY(2px);box-shadow:none}
 #dNext{position:absolute;right:14px;bottom:8px;font-size:14px;animation:bob .8s infinite alternate}
 @keyframes bob{to{transform:translateY(4px)}}
-#panel{position:fixed;inset:0;z-index:60;display:none;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(2px)}
+#panel{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;display:none;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(2px)}
 #pBox{width:min(94vw,470px);max-height:86vh;overflow:auto;background:var(--paper);color:var(--ink);border:4px solid var(--wood);border-radius:12px;box-shadow:0 0 0 3px #c9a066,0 10px 0 rgba(0,0,0,.5);padding:14px;animation:pin .28s cubic-bezier(.2,1.4,.4,1)}
 @keyframes pin{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
 #pBox h2{margin:0 0 4px;font-size:26px;line-height:1.05;color:var(--wood)}
@@ -100,11 +100,11 @@ body.pw #hotbar{bottom:calc(env(safe-area-inset-bottom,0px) + 252px)}
 .tg button{min-width:86px;min-height:40px;border-radius:8px;border:3px solid var(--wood2);background:#fff6dd;color:var(--ink)}
 .tg button.on{background:var(--gold)}
 .close{width:100%;margin-top:12px;background:var(--wood);color:var(--paper);border:0;border-radius:9px;padding:12px;font-size:17px;box-shadow:0 4px 0 #2a1a0e}
-#fade{position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:70;transition:opacity .5s}
-#fadeText{position:fixed;inset:0;z-index:71;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:24px;pointer-events:none;opacity:0;transition:opacity .7s;color:#f4e7c8;line-height:1.4;text-shadow:0 2px 0 #000}
+#fade{position:fixed;top:0;right:0;bottom:0;left:0;background:#000;opacity:0;pointer-events:none;z-index:70;transition:opacity .5s}
+#fadeText{position:fixed;top:0;right:0;bottom:0;left:0;z-index:71;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:24px;pointer-events:none;opacity:0;transition:opacity .7s;color:#f4e7c8;line-height:1.4;text-shadow:0 2px 0 #000}
 #fadeText small{display:block;font-size:15px;opacity:.75;margin-top:6px}
 #prompt{position:fixed;z-index:4;pointer-events:none;transform:translate(-50%,-100%);background:rgba(244,231,200,.96);color:var(--ink);padding:2px 8px;border-radius:6px;font-size:13px;border:2px solid var(--wood);white-space:nowrap;display:none;box-shadow:0 2px 0 rgba(0,0,0,.4)}
-#title{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 7vh) 20px calc(env(safe-area-inset-bottom,0px) + 4vh);text-align:center;pointer-events:none}
+#title{position:fixed;top:0;right:0;bottom:0;left:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 7vh) 20px calc(env(safe-area-inset-bottom,0px) + 4vh);text-align:center;pointer-events:none}
 #title>*{pointer-events:auto}
 #logo{display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
 #logo .pre{font-size:15px;letter-spacing:1px;color:#ffe0b0;text-shadow:0 2px 0 #000;opacity:.9}
@@ -176,6 +176,22 @@ body.title #top,body.title #btns,body.title #hotbar,body.title #invbar,body.titl
   <div id="tfoot">Toque na tela para ativar o som · Capítulo 1</div>
 </div>
 
+<div id="bootErr" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:99;background:#1a0f08;color:#f4e7c8;padding:28px;font:16px/1.5 sans-serif;overflow:auto"></div>
+<script>
+(function(){
+  window.__bootOk=false;
+  function show(msg){var d=document.getElementById('bootErr');if(!d)return;d.style.display='block';d.innerHTML='<h2 style="margin:0 0 10px;color:#ffe08a">O jogo não conseguiu abrir</h2><p>'+msg+'</p><p style="opacity:.8">Dicas: abra pelo link <b>https://frjfelipe-droid.github.io/FARMEVIL/</b> no Chrome ou no Safari (não no visualizador de arquivos do WhatsApp/Drive) e atualize o navegador.</p><p style="opacity:.6;font-size:13px">Navegador: '+navigator.userAgent.replace(/</g,'')+'</p>'}
+  window.addEventListener('error',function(e){if(!window.__bootOk)show('Erro: '+(e.message||'desconhecido'))});
+  setTimeout(function(){if(!window.__bootOk)show('Este navegador não executou o jogo. Provavelmente ele é antigo demais ou o JavaScript está bloqueado.')},4000);
+  if(!window.PointerEvent){
+    var orig=EventTarget.prototype.addEventListener,map={pointerdown:['touchstart','mousedown'],pointermove:['touchmove','mousemove'],pointerup:['touchend','mouseup'],pointercancel:['touchcancel',null]};
+    EventTarget.prototype.addEventListener=function(type,fn,opt){var m=map[type],self=this;if(!m)return orig.call(this,type,fn,opt);
+      orig.call(this,m[0],function(e){var ts=e.changedTouches||[];for(var i=0;i<ts.length;i++){var t=ts[i];fn.call(self,{type:type,pointerId:t.identifier,clientX:t.clientX,clientY:t.clientY,target:e.target,preventDefault:function(){e.preventDefault()},stopPropagation:function(){e.stopPropagation()}})}},{passive:false});
+      if(m[1])orig.call(this,m[1],function(e){fn.call(self,{type:type,pointerId:'m',clientX:e.clientX,clientY:e.clientY,target:e.target,preventDefault:function(){e.preventDefault()},stopPropagation:function(){e.stopPropagation()}})},opt)};
+    if(!Element.prototype.setPointerCapture)Element.prototype.setPointerCapture=function(){};
+  }
+})();
+</script>
 <script>
 {
 'use strict';
@@ -195,11 +211,11 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const waitFor=cond=>new Promise(r=>{const iv=setInterval(()=>{if(cond()){clearInterval(iv);r()}},100)});
 function hex(c){const n=parseInt(c.slice(1),16);return[n>>16,(n>>8)&255,n&255]}
 function mix(a,b,t){const A=hex(a),B=hex(b);return`rgb(${A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')})`}
-function resize(){DPR=Math.min(2,window.devicePixelRatio||1);W=cv.width=Math.floor(innerWidth*DPR);H=cv.height=Math.floor(innerHeight*DPR);cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+const OPT={music:.8,sfx:.8,shake:true,speed:1,guide:true,lite:false};
+try{Object.assign(OPT,JSON.parse(localStorage.getItem('colheita_opts')||'{}'))}catch(e){}
+function resize(){DPR=OPT.lite?1:Math.min(2,window.devicePixelRatio||1);W=cv.width=Math.floor(innerWidth*DPR);H=cv.height=Math.floor(innerHeight*DPR);cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
   ZOOM=Math.max(2,Math.min(W/(13*T),H/(11.5*T)));ZOOM=Math.round(ZOOM*2)/2;lightC.width=Math.ceil(W/3);lightC.height=Math.ceil(H/3)}
 resize();addEventListener('resize',resize);
-const OPT={music:.8,sfx:.8,shake:true,speed:1,guide:true};
-try{Object.assign(OPT,JSON.parse(localStorage.getItem('colheita_opts')||'{}'))}catch(e){}
 function saveOpt(){try{localStorage.setItem('colheita_opts',JSON.stringify(OPT))}catch(e){}}
 $('logoH').innerHTML=[...'A COLHEITA'].map((c,i)=>c===' '?'<span>&nbsp;</span>':`<span style="animation-delay:${i*.09}s">${c}</span>`).join('');
 
@@ -212,7 +228,12 @@ const pTextW=(s,k=1)=>s.length*4*k-k;
 let AC=null,master,musicBus,sfxBus,curTrack=null,curName='',step=0,nextTime=0,pendingMusic=null,musicTok=0;
 const NOTE={C:0,'C#':1,Db:1,D:2,'D#':3,Eb:3,E:4,F:5,'F#':6,Gb:6,G:7,'G#':8,Ab:8,A:9,'A#':10,Bb:10,B:11};
 function fq(n){const m=n.match(/^([A-G][#b]?)(\d)$/);return 440*Math.pow(2,(NOTE[m[1]]+(+m[2]+1)*12-69)/12)}
+let unlockEl=null;
+function silentUnlock(){if(unlockEl)return;try{const sr=8000,n=800,b=new ArrayBuffer(44+n*2),v=new DataView(b);const w=(o,t)=>{for(let i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))};w(0,'RIFF');v.setUint32(4,36+n*2,true);w(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,'data');v.setUint32(40,n*2,true);
+  unlockEl=new Audio(URL.createObjectURL(new Blob([b],{type:'audio/wav'})));unlockEl.loop=true;unlockEl.setAttribute('playsinline','');const pr=unlockEl.play();if(pr&&pr.catch)pr.catch(()=>{unlockEl=null})}catch(e){unlockEl=null}}
+['touchend','click','keydown'].forEach(ev=>document.addEventListener(ev,()=>{silentUnlock();if(AC&&AC.state!=='running')AC.resume()},{passive:true}));
 function initAudio(){
+  silentUnlock();
   if(AC){if(AC.state==='suspended')AC.resume();return}
   try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){return}
   const comp=AC.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=3;comp.attack.value=.01;comp.release.value=.25;
@@ -566,7 +587,7 @@ function fenceH(m,x1,x2,y,gaps=[]){const g=m.g;for(let x=x1;x<x2;x++){if(gaps.so
 function fenceV(m,x,y1,y2,gaps=[]){const g=m.g;for(let y=y1;y<y2;y++){if(gaps.some(q=>y>=q[0]&&y<q[1]))continue;g.fillStyle='#8a5a32';g.fillRect(x,y,2,1);g.fillStyle='#a8743f';g.fillRect(x,y,1,1)}
   for(let y=y1;y<=y2;y+=16){if(gaps.some(q=>y>q[0]&&y<q[1]))continue;g.fillStyle='#5a3a20';g.fillRect(x-1,y-8,3,10);g.fillStyle='#7a5030';g.fillRect(x-1,y-8,1,10)}
   let s=y1;const segs=[];for(const q of gaps){segs.push([s,q[0]]);s=q[1]}segs.push([s,y2]);for(const sg of segs)if(sg[1]>sg[0])m.rects.push({x:x-2,y:sg[0],w:5,h:sg[1]-sg[0]})}
-function addImg(m,img,x,y,ox,oy){const o={x,y,img,ox:ox??img.width/2,oy:oy??img.height};m.objs.push(o);return o}
+function addImg(m,img,x,y,ox,oy){const o={x,y,img,ox:ox!=null?ox:img.width/2,oy:oy!=null?oy:img.height};m.objs.push(o);return o}
 function addTree(m,tx,ty,v=0,solid=true){const r=(tx*31+ty*17)%4;const o=addImg(m,TREES[v][r],tx*T+8,ty*T+14,18,42);o.tree=1;o.ph=(tx*7+ty*3)%6;if(solid&&tx>=0&&ty>=0&&tx<m.w&&ty<m.h)m.solid[ty*m.w+tx]=1;return o}
 function addBush(m,tx,ty,v=0,berry=false){addImg(m,BUSHES[v][berry?1:0],tx*T+8,ty*T+13,11,14);m.bush[ty*m.w+tx]=1}
 function freeRect(list,x,y){return!list.some(r=>x>=r[0]&&x<r[0]+r[2]&&y>=r[1]&&y<r[1]+r[3])}
@@ -850,7 +871,7 @@ function hhmm(m){m=Math.floor(m)%1440;const h=m/60|0,mm=(m%60)/10|0;return Strin
 /* cinematic helpers */
 function cine(on){CINE.on=on;document.body.classList.toggle('cine',on)}
 function curCenter(){const vw=W/(ZOOM*CINE.z),vh=H/(ZOOM*CINE.z);return{x:camX+vw/2,y:camY+vh*.5}}
-function camTo(x,y,ms=1200,z){return new Promise(res=>{const c=CINE.cam?{...CINE.cam}:{x:P.x,y:P.y-10};const z0=CINE.z,z1=z??CINE.z;CINE.cam=c;const t0=performance.now();
+function camTo(x,y,ms=1200,z){return new Promise(res=>{const c=CINE.cam?{...CINE.cam}:{x:P.x,y:P.y-10};const z0=CINE.z,z1=z!=null?z:CINE.z;CINE.cam=c;const t0=performance.now();
   const stp=()=>{const k=Math.min(1,(performance.now()-t0)/ms),e=ease(k);CINE.cam={x:c.x+(x-c.x)*e,y:c.y+(y-c.y)*e};CINE.z=z0+(z1-z0)*e;if(k<1)requestAnimationFrame(stp);else res()};stp()})}
 async function camRelease(ms=900){await camTo(P.x,P.y-10,ms,1);CINE.cam=null}
 function irisTo(to,ms=600){return new Promise(res=>{const a=IRIS,t0=performance.now();const stp=()=>{const k=Math.min(1,(performance.now()-t0)/ms);IRIS=a+(to-a)*ease(k);if(k<1)requestAnimationFrame(stp);else res()};stp()})}
@@ -1536,7 +1557,7 @@ function drawHorse(g,h,t){const x=Math.round(h.x),y=Math.round(h.y);g.save();g.t
   g.restore()}
 function updCows(dt){if(M.name==='farm')updChicks(dt);updHorses(dt);
   if(M.name==='celeiro'){S.cows.forEach((c,i)=>{if(c.state==='barn'){const st=STALLS[c.seed];c.x=st.x;c.y=st.y;c.moving=false;c.eat=Math.sin(GT*.7+c.seed*2)>.2;c.face=c.seed%2?1:-1}
-    else if(c.state==='leaving'){c.delay-=dt;if(c.delay>0)return;const wps=[[c.x,110],[176,110],[176,206]];const w=c.wp<1?[c.x0??(c.x0=c.x),110]:wps[c.wp];const dx=w[0]-c.x,dy=w[1]-c.y,d=Math.hypot(dx,dy);
+    else if(c.state==='leaving'){c.delay-=dt;if(c.delay>0)return;const wps=[[c.x,110],[176,110],[176,206]];const w=c.wp<1?[c.x0!=null?c.x0:(c.x0=c.x),110]:wps[c.wp];const dx=w[0]-c.x,dy=w[1]-c.y,d=Math.hypot(dx,dy);
       if(d<3){c.wp++;if(c.wp>2){c.state='exit';c.delay=i*.5;c.x=DOOR_BARN.x;c.y=DOOR_BARN.y-4;c.x0=undefined;c.wp=0}return}c.x+=dx/d*36*dt;c.y+=dy/d*36*dt;c.moving=true;if(Math.abs(dx)>.5)c.face=dx>0?1:-1}});return}
   if(M.name!=='farm')return;
   for(const c of S.cows){if(c.state==='barn')continue;if(c.kx||c.ky){c.x+=c.kx*dt;c.y+=c.ky*dt;c.kx*=Math.pow(.03,dt);c.ky*=Math.pow(.03,dt);if(Math.abs(c.kx)+Math.abs(c.ky)<3)c.kx=c.ky=0}let tx=c.x,ty=c.y,sp=12;c.eat=false;
@@ -1571,7 +1592,9 @@ function updParticles(dt){
   for(let i=particles.length-1;i>=0;i--){const p=particles[i];p.life-=dt;if(p.life<=0){particles.splice(i,1);continue}p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=p.g*dt;if(p.col==='smoke')p.s+=dt*3;if(p.leaf)p.x+=Math.sin(p.life*3)*10*dt}
   for(let i=FT.length-1;i>=0;i--){FT[i].life-=dt;FT[i].y-=14*dt;if(FT[i].life<=0)FT.splice(i,1)}}
 let last=performance.now(),titleT=0;
-function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;GT+=dt;
+let perfN=0,perfT=0,perfDone=false;
+function loop(now){const raw=(now-last)/1000;const dt=Math.min(.05,raw);last=now;GT+=dt;
+  if(!perfDone&&!titleMode&&!OPT.lite&&raw<1){perfN++;perfT+=raw;if(perfN>=150){perfDone=true;if(perfT/perfN>.045){OPT.lite=true;saveOpt();resize();toast('Modo leve ativado para rodar melhor neste aparelho.','',3500)}}}
   try{if(titleMode)titleT+=dt;else{
     updDialog(dt);if(CUT){CUT.t+=dt;if(CUT.fx)CUT.fx(CUT.t);if(CUT.t>=CUT.dur)endCut()}
     if(P.act)updAct(dt);if(SMOVE)updScriptMove(dt);else if(!busy()){updPlayer(dt);updTime(dt)}else P.moving=false;
@@ -1770,9 +1793,10 @@ function drawLight(dk,Z){const lw=lightC.width,lh=lightC.height,s=Z/3;lg.globalC
 /* ================= MENUS / START ================= */
 function optionsPanel(){return new Promise(res=>{PANEL={res};$('pTitle').textContent='Opções';$('pSub').textContent='Ajustes salvos neste aparelho';const b=$('pBody');
   b.innerHTML=`<label class="sl">Música <input type="range" id="oMus" min="0" max="1" step="0.05" value="${OPT.music}"></label><label class="sl">Efeitos sonoros <input type="range" id="oSfx" min="0" max="1" step="0.05" value="${OPT.sfx}"></label>
-  <div class="tg"><span>Tremor de tela</span><button id="oShk" class="${OPT.shake?'on':''}">${OPT.shake?'Ligado':'Desligado'}</button></div><div class="tg"><span>Seta de guia</span><button id="oGd" class="${OPT.guide?'on':''}">${OPT.guide?'Ligada':'Desligada'}</button></div><div class="tg"><span>Velocidade do texto</span><button id="oSpd">${OPT.speed>1.5?'Rápida':OPT.speed<1?'Lenta':'Normal'}</button></div>`;
+  <div class="tg"><span>Tremor de tela</span><button id="oShk" class="${OPT.shake?'on':''}">${OPT.shake?'Ligado':'Desligado'}</button></div><div class="tg"><span>Gráficos</span><button id="oLite" class="${OPT.lite?'':'on'}">${OPT.lite?'Leve':'Alta'}</button></div><div class="tg"><span>Seta de guia</span><button id="oGd" class="${OPT.guide?'on':''}">${OPT.guide?'Ligada':'Desligada'}</button></div><div class="tg"><span>Velocidade do texto</span><button id="oSpd">${OPT.speed>1.5?'Rápida':OPT.speed<1?'Lenta':'Normal'}</button></div>`;
   $('oMus').oninput=e=>{OPT.music=+e.target.value;applyVol();saveOpt()};$('oSfx').oninput=e=>{OPT.sfx=+e.target.value;applyVol();sfx('coin');saveOpt()};
   $('oShk').onclick=e=>{OPT.shake=!OPT.shake;e.target.textContent=OPT.shake?'Ligado':'Desligado';e.target.classList.toggle('on',OPT.shake);saveOpt();sfx('ui')};
+  $('oLite').onclick=e=>{OPT.lite=!OPT.lite;e.target.textContent=OPT.lite?'Leve':'Alta';e.target.classList.toggle('on',!OPT.lite);saveOpt();resize();sfx('ui')};
   $('oGd').onclick=e=>{OPT.guide=!OPT.guide;e.target.textContent=OPT.guide?'Ligada':'Desligada';e.target.classList.toggle('on',OPT.guide);saveOpt();sfx('ui')};
   $('oSpd').onclick=e=>{OPT.speed=OPT.speed<1?1:OPT.speed>1.5?.7:2;e.target.textContent=OPT.speed>1.5?'Rápida':OPT.speed<1?'Lenta':'Normal';saveOpt();sfx('ui')};
   $('panel').style.display='flex';document.body.classList.add('pop')})}
@@ -1809,6 +1833,7 @@ document.addEventListener('visibilitychange',()=>{if(!AC)return;if(document.hidd
 S=newState();P=newPlayer(0,0);MAPS.city=buildCity();MAPS.vizinho=buildNeighbor();
 document.addEventListener('pointerdown',()=>{initAudio();if(titleMode)playMusic('title')},{once:true});
 window.__G={get FISH(){return FISH},get RING(){return RING},get S(){return S},get P(){return P},get M(){return M},get CUT(){return CUT},loadMap,MAPS,startGame,sleepNight,gotoStealth,TR,script,say,abductionScene};
+window.__bootOk=true;
 requestAnimationFrame(loop);
 }
 </script>
